@@ -1,4 +1,6 @@
-<h2>About</h2>
-<p>
-    {{controller.message}}
-</p>
+<h2>Edit Place</h2>
+
+<input type="text" placeholder="New Name..." ng-model="vm.place.name" />
+<input type="text" placeholder="New Address..." ng-model="vm.place.address" />
+
+<button type="button" ng-click="vm.editPlace()">Edit</button>

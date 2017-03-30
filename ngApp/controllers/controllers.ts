@@ -10,6 +10,10 @@ namespace myapp.Controllers {
         })
       }
 
+      public deletePlace(placeId) {
+        this.placeService.removePlace(placeId);
+      }
+
       public constructor(
         private placeService
       ) {
@@ -31,6 +35,20 @@ namespace myapp.Controllers {
     }
 
     export class EditPlaceController {
+      public place
+      public placeId
+
+      public editPlace() {
+        this.place._id = this.placeId;
+        this.placeService.savePlace(this.place);
+      }
+
+      public constructor(
+        public $stateParams,
+        private placeService
+      ) {
+        this.placeId = $stateParams['id'];
+      }
     }
 
 }

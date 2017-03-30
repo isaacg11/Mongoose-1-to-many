@@ -7,13 +7,17 @@ namespace myapp.Services {
     }
 
     public getPlaces(category) {
-      return this.PlaceResource.query({category: category}).$promise;
+      return this.PlaceResource.query({tag: category}).$promise;
+    }
+
+    public removePlace(placeId) {
+      return this.PlaceResource.delete({tag: placeId})
     }
 
     public constructor(
       public $resource
     ) {
-      this.PlaceResource = $resource('/api/places/:category');
+      this.PlaceResource = $resource('/api/places/:tag');
     }
   }
 

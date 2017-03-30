@@ -20,7 +20,7 @@ namespace myapp {
                 controllerAs: 'vm'
             })
             .state('edit', {
-                url: '/edit',
+                url: '/edit/:id',
                 templateUrl: '/ngApp/views/editPlace.html',
                 controller: myapp.Controllers.EditPlaceController,
                 controllerAs: 'vm'

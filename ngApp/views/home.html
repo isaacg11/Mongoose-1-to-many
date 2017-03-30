@@ -12,5 +12,5 @@
 </select>
 
 <ul>
-  <li ng-repeat="p in vm.places">{{p.name}}</li>
+  <li ng-repeat="p in vm.places">{{p.name}} <a href="/edit/{{p._id}}">EDIT</a> <a href="#" ng-click="vm.deletePlace(p._id)">DELETE</a></li>
 </ul>
