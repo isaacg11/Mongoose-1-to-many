@@ -1,0 +1,11 @@
+<h1>Add Place</h1>
+
+<input type="text" placeholder="Name..." ng-model="vm.place.name" />
+<input type="text" placeholder="Address..." ng-model="vm.place.address" />
+<select ng-model="vm.place.category">
+  <option value="food">Food</option>
+  <option value="drink">Drink</option>
+  <option value="entertainment">Entertainment</option>
+</select>
+
+<button type="button" ng-click="vm.addPlace()">Add</button>

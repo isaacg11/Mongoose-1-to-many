@@ -1,4 +1,16 @@
 <h2>Home</h2>
-<p>
-    {{controller.message}}
-</p>
+
+<a href="/add">Add Place</a>
+
+<div style="border-top: 1px solid #000000; padding-bottom: 25px;"></div>
+
+<p>Search by category</p>
+<select ng-model="vm.category" ng-change="vm.getPlaces()">
+  <option value="food">Food</option>
+  <option value="drink">Drink</option>
+  <option value="entertainment">Entertainment</option>
+</select>
+
+<ul>
+  <li ng-repeat="p in vm.places">{{p.name}}</li>
+</ul>

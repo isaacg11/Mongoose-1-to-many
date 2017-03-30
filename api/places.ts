@@ -7,16 +7,16 @@ import Place from '../models/place';
 /* CREATE */
 router.post('/', (req, res) => {
   let place:any = new Place();
-  place.name = 'Disney Land';
-  place.address = 'Los Angeles, CA';
+  place.name = req.body.name;
+  place.address = req.body.address;
   place.save((err, newPlace) => {
-    Category.findOne({ name:'food'}).exec((err, result:any) => {
+    Category.findOne({name: req.body.category}).exec((err, result:any) => {
       if (err) {
         res.send(err)
       } else {
         if(result === null) {
           let category:any = new Category();
-          category.name = 'food';
+          category.name = req.body.category;
           category.places.push(newPlace._id);
           category.save((err) => {
             if(err) {
@@ -42,12 +42,12 @@ router.post('/', (req, res) => {
 })
 
 /* READ */
-router.get('/', (req, res) => {
-  Category.findOne({name: 'food'}).populate('places').exec(function (err, results) {
+router.get('/:category', (req, res) => {
+  Category.findOne({name: req.params['category']}).populate('places').exec(function (err, results:any) {
     if (err) {
       res.send(err)
     } else {
-      res.send(results)
+      res.json(results.places)
     }
   });
 })
